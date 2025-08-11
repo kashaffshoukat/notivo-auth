@@ -1,17 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SignUpPage from "./components/SignUpPage";
-import LoginPage from "./components/LoginPage";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import SignUpPage from "./pages/SignUpPage";
+import LoginPage from "./pages/LoginPage";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<SignUpPage />} />
-        <Route path="/signup" element={<SignUpPage />} />  {/* optional alias */}
+        <Route path="/" element={<Navigate to="/signup" replace />} />
+        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Router>
   );
 }
-
-export default App;
