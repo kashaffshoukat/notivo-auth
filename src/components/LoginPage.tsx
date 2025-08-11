@@ -10,7 +10,7 @@ function RightPromo() {
           <h2 className="text-[32px] leading-[38px] font-extrabold tracking-[-0.02em] text-[#1f2937]">
             Lead Smarter with Better Team Insights
           </h2>
-        <p className="mt-3 text-[15px] leading-[22px] text-[#1f2937]/75 max-w-[560px]">
+          <p className="mt-3 text-[15px] leading-[22px] text-[#1f2937]/75 max-w-[560px]">
             Capture feedback, track growth, and simplify performance conversations <br/> —
             all in one private, intuitive workspace.
           </p>
@@ -151,17 +151,19 @@ function InputWithIcon({
 }
 
 /* ==================================== PAGE ==================================== */
-export default function LoginPage() {
+export default function SigninPage() {
   return (
     <div className="min-h-screen flex flex-col md:grid md:grid-cols-2">
       {/* LEFT */}
       <section className="bg-white px-5 sm:px-16 md:px-9 pb-10 flex flex-col">
-        <div className="pt-4">
+        {/* Logo: centered on small, left on md+ */}
+        <div className="pt-6 flex justify-center md:justify-start">
           <img src="/logo.avif" alt="notivo" className="block h-6 w-auto select-none" draggable={false} />
         </div>
 
-        <div className="flex-1 grid place-items-center mt-6 md:mt-16">
-          <div className="w-full max-w-[380px] -translate-y-1 sm:-translate-y-1 lg:-translate-y-1">
+        {/* Content: centered on small, left on md+ with a clean gap from logo */}
+        <div className="flex-1 grid place-items-center mt-10 md:mt-16">
+          <div className="w-full max-w-[380px] text-center md:text-left">
             <h1 className="text-[28px] leading-[34px] font-semibold text-gray-900">Sign in</h1>
             <p className="mt-1 text-[13px] leading-[18px] text-gray-500">Welcome back! Please log in.</p>
 
