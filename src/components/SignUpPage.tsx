@@ -6,7 +6,6 @@ function RightPromo() {
   return (
     <aside className="hidden md:block relative h-full w-full">
       <div className="absolute inset-0 bg-[#72E37C] rounded-[18px] overflow-hidden">
-        {/* Headline + subcopy */}
         <div className="px-8 pt-12 max-w-[640px]">
           <h2 className="text-[32px] leading-[38px] font-extrabold tracking-[-0.02em] text-[#1f2937]">
             Lead Smarter with Better Team Insights
@@ -17,7 +16,6 @@ function RightPromo() {
           </p>
         </div>
 
-        {/* Mockup: larger than container, tilted, and cropped via overflow-hidden */}
         <div className="relative h-full">
           <img
             src="/right-pannel.avif"
@@ -34,7 +32,8 @@ function RightPromo() {
               select-none
               transform origin-center rotate-[-8deg]
             "
-          />        </div>
+          />
+        </div>
       </div>
     </aside>
   );
@@ -166,12 +165,14 @@ export default function SignUpPage() {
     <div className="min-h-screen flex flex-col md:grid md:grid-cols-2">
       {/* LEFT */}
       <section className="bg-white px-5 sm:px-7 md:px-9 pb-10 flex flex-col">
-        <div className="pt-4">
+        {/* Logo: centered on small, left on md+ */}
+        <div className="pt-6 flex justify-center md:justify-start">
           <img src="/logo.avif" alt="notivo" className="block h-6 w-auto select-none" draggable={false} />
         </div>
 
-        <div className="flex-1 grid place-items-center mt-6 md:mt-16">
-          <div className="w-full max-w-[380px] -translate-y-1 sm:-translate-y-1 lg:-translate-y-1">
+        {/* Content: centered on small, left on md+ with a clean gap from logo */}
+        <div className="flex-1 grid place-items-center mt-10 md:mt-16">
+          <div className="w-full max-w-[380px] text-center md:text-left">
             <h1 className="text-[28px] leading-[34px] font-semibold text-gray-900">Sign up</h1>
             <p className="mt-1 text-[13px] leading-[18px] text-gray-500">Enter your details to signup.</p>
 
