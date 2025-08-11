@@ -1,0 +1,31 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ring: theme(colors.brand.500);
+  }
+  * { scrollbar-width: thin; }
+  input[type="text"], input[type="email"], input[type="password"] {
+    @apply outline-none;
+  }
+}
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition;
+  }
+  .btn-primary {
+    @apply bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-900;
+  }
+  .btn-outline {
+    @apply bg-white ring-1 ring-gray-200 hover:ring-gray-300;
+  }
+  .input {
+    @apply w-full rounded-lg ring-1 ring-gray-200 focus:ring-2 focus:ring-brand-500/60 px-3 py-2.5 text-sm placeholder-gray-400;
+  }
+  .label {
+    @apply text-sm font-medium text-gray-700;
+  }
+}
