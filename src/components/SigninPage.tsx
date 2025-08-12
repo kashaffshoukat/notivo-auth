@@ -70,11 +70,24 @@ function FacebookIcon({ className = "" }: { className?: string }) {
 }
 function MailIcon({ className = "" }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2zm0 0l8 5 8-5"/>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.8}
+      stroke="currentColor"
+      className={className}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+      />
     </svg>
   );
 }
+
+
 function LockIcon({ className = "" }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -187,15 +200,15 @@ export default function SigninPage() {
             <DividerWithText text="or" />
 
             <form className="space-y-3">
-              <InputWithIcon label="Email" type="email" placeholder="you@example.com" Icon={MailIcon} name="email" autoComplete="email" />
-              <InputWithIcon label="Password" type="password" placeholder="•••••••••" Icon={LockIcon} name="password" autoComplete="current-password" withVisibilityToggle />
+              <InputWithIcon label="Email" type="email" placeholder="" Icon={MailIcon} name="email" autoComplete="email" />
+              <InputWithIcon label="Password" type="password" placeholder="" Icon={LockIcon} name="password" autoComplete="current-password" withVisibilityToggle />
 
               <div className="flex items-center justify-between pt-1">
                 <label className="inline-flex items-center gap-2 text-xs text-gray-600 select-none">
                   <input type="checkbox" className="h-3.5 w-3.5 rounded border-gray-300 text-gray-900 focus:ring-gray-800" />
                   Keep me logged in
                 </label>
-                <a href="#" className="text-xs text-gray-600 hover:underline">Forgot password?</a>
+                <a href="#" className="text-xs text-gray-600 hover:underline"><b>Forgot password?</b></a>
               </div>
 
               <PrimaryButton type="submit">Login</PrimaryButton>
