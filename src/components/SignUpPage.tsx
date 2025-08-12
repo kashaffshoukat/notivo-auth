@@ -206,7 +206,7 @@ export default function SignUpPage() {
 
             <DividerWithText text="OR" />
 
-            <form>
+            <form className="w-full max-w-[420px] lg:max-w-[480px] text-left">
               <InputWithIcon label="Full name" placeholder="" Icon={UserIcon} name="fullName" autoComplete="name" />
               <InputWithIcon label="Email" type="email" placeholder="" Icon={MailIcon} name="email" autoComplete="email" />
               <InputWithIcon label="Password" type="password" placeholder="" Icon={LockIcon} name="password" autoComplete="new-password" withVisibilityToggle />
