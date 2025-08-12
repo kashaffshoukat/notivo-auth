@@ -4,53 +4,32 @@ import { Link } from "react-router-dom";
 /* ========================= Right Panel (tilted & cropped) ========================= */
 function RightPromo() {
   return (
-    // Show only on large screens to avoid crowding phones/tablets
-    <aside className="hidden lg:block relative h-full w-full p-4 lg:p-6 xl:p-8">
-      <div className="relative h-full w-full bg-[#72E37C] rounded-[18px] overflow-hidden">
-        {/* Decorative rings (SVG, very reliable across Tailwind versions) */}
-        <div className="pointer-events-none absolute -bottom-16 -right-16 z-[1]">
-          <svg
-            width="420"
-            height="420"
-            viewBox="0 0 420 420"
-            className="block lg:w-[360px] lg:h-[360px] xl:w-[420px] xl:h-[420px]"
-            aria-hidden="true"
-          >
-            {/* Outer ring */}
-            <circle
-              cx="210"
-              cy="210"
-              r="150"
-              fill="none"
-              stroke="#D1D5DB"    /* gray-300 */
-              strokeOpacity="0.55"
-              strokeWidth="36"
-            />
-            {/* Inner ring (offset a bit for the layered look) */}
-            <circle
-              cx="250"
-              cy="250"
-              r="95"
-              fill="none"
-              stroke="#D1D5DB"
-              strokeOpacity="0.60"
-              strokeWidth="26"
-            />
-          </svg>
+    <aside className="hidden md:block relative h-full w-full p-1 sm:p-1 lg:p-1">
+      <div className="relative h-full w-full bg-[#72E37C] rounded-[1px] overflow-hidden">
+        {/* Decorative ring circles (behind the mockup) */}
+        <div className="absolute inset-0">
+         
+          <div
+            className="pointer-events-none absolute
+              md:-bottom-1 md:-left-1 md:w-[140px] md:border-[40px]
+              lg:-bottom-1 lg:-left-1 lg:w-[200px] lg:border-[40px]
+              xl:-bottom-1 xl:-left-1 xl:w-[230px] xl:border-[40px]
+              aspect-square rounded-full border-gray-300/60 z-[1]"
+          />
         </div>
 
         {/* Text content */}
-        <div className="px-6 lg:px-8 pt-10 lg:pt-12 max-w-[640px] relative z-[3]">
+        <div className="px-6 md:px-8 pt-10 md:pt-12 max-w-[640px] relative z-[3]">
           <h2 className="text-[32px] leading-[38px] font-extrabold tracking-[-0.02em] text-[#1f2937]">
             Lead Smarter with Better Team Insights
           </h2>
           <p className="mt-3 text-[15px] leading-[22px] text-[#1f2937]/75 max-w-[560px]">
-            Capture feedback, track growth, and simplify performance conversations <br /> —
+            Capture feedback, track growth, and simplify performance conversations <br /> — 
             all in one private, intuitive workspace.
           </p>
         </div>
 
-        {/* Tilted image (kept above rings but within the green card) */}
+        {/* Tilted image */}
         <div className="relative h-full z-[2]">
           <img
             src="/right-pannel.avif"
@@ -59,8 +38,9 @@ function RightPromo() {
             draggable={false}
             className="
               absolute
-              lg:right-[-180px] lg:w-[125%]
-              xl:right-[-230px] xl:w-[130%]
+              md:right-[-140px] md:w-[118%]
+              lg:right-[-200px] lg:w-[125%]
+              xl:right-[-240px] xl:w-[130%]
               max-w-none rounded-xl shadow-2xl select-none
               transform origin-center rotate-[-8deg]
             "
@@ -185,17 +165,17 @@ function InputWithIcon({
 /* ==================================== PAGE ==================================== */
 export default function SigninPage() {
   return (
-    <div className="min-h-screen flex flex-col lg:grid lg:grid-cols-2">
+    <div className="min-h-screen flex flex-col md:grid md:grid-cols-2">
       {/* LEFT */}
       <section className="bg-white px-5 sm:px-16 md:px-9 pb-10 flex flex-col">
-        {/* Logo */}
-        <div className="pt-6 flex justify-center lg:justify-start">
+        {/* Logo: centered on small, left on md+ */}
+        <div className="pt-6 flex justify-center md:justify-start">
           <img src="/logo.avif" alt="notivo" className="block h-6 w-auto select-none" draggable={false} />
         </div>
 
         {/* Content */}
-        <div className="flex-1 grid place-items-center mt-8 lg:mt-16">
-          <div className="w-full max-w-[380px] text-center lg:text-left">
+        <div className="flex-1 grid place-items-center mt-10 md:mt-16">
+          <div className="w-full max-w-[380px] text-center md:text-left">
             <h1 className="text-[28px] leading-[34px] font-semibold text-gray-900">Sign in</h1>
             <p className="mt-1 text-[13px] leading-[18px] text-gray-500">Welcome back! Please log in.</p>
 
@@ -229,7 +209,7 @@ export default function SigninPage() {
         </div>
       </section>
 
-      {/* RIGHT (hidden on small/medium) */}
+      {/* RIGHT (hidden on small) */}
       <RightPromo />
     </div>
   );
