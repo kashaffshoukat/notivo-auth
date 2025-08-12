@@ -1,35 +1,31 @@
 import React, { useId, useState } from "react";
 import { Link } from "react-router-dom";
 
-/* ========================= Right Panel (tilted & cropped) ========================= */
 function RightPromo() {
   return (
-    <aside className="hidden md:block relative h-full w-full p-1 sm:p-1 lg:p-6 xl:p-8">
-      <div className="relative h-full w-full bg-[#72E37C] rounded-[1px] lg:rounded-[18px] overflow-hidden">
-        {/* Decorative ring circles (behind the mockup) */}
+    <aside className="hidden md:block relative h-full w-full p-2 lg:p-4">
+      <div className="relative h-full w-full bg-[#72E37C] rounded-lg lg:rounded-2xl overflow-hidden">
         <div className="absolute inset-0">
           <div
             className="pointer-events-none absolute
-              md:-bottom-1 md:-left-1 md:w-[140px] md:border-[40px]
-              lg:-bottom-1 lg:-left-1 lg:w-[200px] lg:border-[40px]
-              xl:-bottom-1 xl:-left-1 xl:w-[230px] xl:border-[40px]
-              aspect-square rounded-full border-gray-300/60 z-[1]"
+              md:-bottom-2 md:-left-2 md:w-[120px] md:border-[30px]
+              lg:-bottom-4 lg:-left-4 lg:w-[180px] lg:border-[40px]
+              xl:-bottom-6 xl:-left-6 xl:w-[220px] xl:border-[50px]
+              aspect-square rounded-full border-white/20 z-[1]"
           />
         </div>
 
-        {/* Text content */}
-        <div className="px-6 md:px-8 pt-10 md:pt-12 max-w-[640px] relative z-[3]">
-          <h2 className="text-[32px] leading-[38px] font-extrabold tracking-[-0.02em] text-[#1f2937]">
+        <div className="px-6 md:px-8 lg:px-10 pt-8 md:pt-10 lg:pt-12 max-w-[90%] relative z-[3]">
+          <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold tracking-tight text-[#1f2937] leading-tight">
             Lead Smarter with Better Team Insights
           </h2>
-          <p className="mt-3 text-[15px] leading-[22px] text-[#1f2937]/75 max-w-[560px]">
-            Capture feedback, track growth, and simplify performance conversations <br /> —
+          <p className="mt-3 md:mt-4 text-sm md:text-base text-[#1f2937]/80 max-w-[85%] leading-relaxed">
+            Capture feedback, track growth, and simplify performance conversations — 
             all in one private, intuitive workspace.
           </p>
         </div>
 
-        {/* Tilted image */}
-        <div className="relative h-full z-[2]">
+        <div className="absolute bottom-0 right-0 w-full h-full z-[2] overflow-hidden">
           <img
             src="/right-pannel.avif"
             alt="Product preview"
@@ -37,12 +33,12 @@ function RightPromo() {
             draggable={false}
             className="
               absolute
-              top-1/2 -translate-y-1/2
-              md:right-[-140px] md:w-[118%]
-              lg:right-[-320px] lg:w-[150%]
-              xl:right-[-360px] xl:w-[160%]
-              max-w-none rounded-xl shadow-2xl select-none
-              transform origin-center rotate-[-8deg]
+              bottom-4 right-4
+              md:bottom-6 md:right-6 md:w-[70%]
+              lg:bottom-8 lg:right-8 lg:w-[75%]
+              xl:bottom-10 xl:right-10 xl:w-[80%]
+              max-w-none rounded-lg md:rounded-xl shadow-2xl select-none
+              transform rotate-[-8deg] origin-bottom-right
             "
           />
         </div>
@@ -51,7 +47,6 @@ function RightPromo() {
   );
 }
 
-/* ============================== Small UI helpers =============================== */
 function GoogleIcon({ className = "" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
@@ -173,54 +168,66 @@ function InputWithIcon({
   );
 }
 
-/* ==================================== PAGE ==================================== */
 export default function SigninPage() {
   return (
     <div className="min-h-screen flex flex-col md:grid md:grid-cols-2">
-      {/* LEFT */}
-      <section className="bg-white px-5 sm:px-16 md:px-9 lg:px-16 xl:px-24 pb-12 flex flex-col">
-        {/* Logo: centered on small, left on md+ */}
-        <div className="pt-6 flex justify-center md:justify-start">
+      <section className="bg-white px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-8 flex flex-col min-h-screen md:min-h-full">
+        <div className="flex justify-center md:justify-start mb-8 md:mb-12">
           <img src="/logo.avif" alt="notivo" className="block h-6 w-auto select-none" draggable={false} />
         </div>
 
-        {/* Content */}
-        <div className="flex-1 grid place-items-center mt-10 md:mt-16">
-          <div className="w-full max-w-[420px] lg:max-w-[480px] text-center md:text-left">
-            <h1 className="text-[28px] leading-[34px] font-semibold text-gray-900">Sign in</h1>
-            <p className="mt-1 text-[13px] leading-[18px] text-gray-500">Welcome back! Please log in.</p>
+        <div className="flex-1 flex items-center justify-center">
+          <div className="w-full max-w-[400px] text-center md:text-left">
+            <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">Sign in</h1>
+            <p className="text-sm text-gray-500 mb-6">Enter your details to login.</p>
 
-            <div className="mt-4 space-y-2">
+            <div className="space-y-3 mb-6">
               <SocialButton provider="google">Sign in with Google</SocialButton>
               <SocialButton provider="facebook">Sign in with Facebook</SocialButton>
             </div>
 
-            <DividerWithText text="or" />
+            <DividerWithText text="OR" />
 
-            <form className="space-y-3">
-              <InputWithIcon label="Email" type="email" placeholder="" Icon={MailIcon} name="" autoComplete="email" />
-              <InputWithIcon label="Password" type="password" placeholder="" Icon={LockIcon} name="" autoComplete="current-password" withVisibilityToggle />
+            <form className="space-y-4">
+              <InputWithIcon 
+                label="Email" 
+                type="email" 
+                placeholder="richardjoe33@gmail.com" 
+                Icon={MailIcon} 
+                name="email" 
+                autoComplete="email" 
+              />
+              <InputWithIcon 
+                label="Password" 
+                type="password" 
+                placeholder="••••••••••" 
+                Icon={LockIcon} 
+                name="password" 
+                autoComplete="current-password" 
+                withVisibilityToggle 
+              />
 
-              <div className="flex items-center justify-between pt-1">
-                <label className="inline-flex items-center gap-2 text-xs text-gray-600 select-none">
-                  <input type="checkbox" className="h-3.5 w-3.5 rounded border-gray-300 text-gray-900 focus:ring-gray-800" />
+              <div className="flex items-center justify-between py-2">
+                <label className="inline-flex items-center gap-2 text-sm text-gray-600 select-none">
+                  <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-gray-900 focus:ring-gray-800" />
                   Keep me logged in
                 </label>
-                <a href="#" className="text-xs text-gray-600 hover:underline"><b>Forgot password?</b></a>
+                <a href="#" className="text-sm text-gray-600 underline hover:text-gray-800">Forgot password?</a>
               </div>
 
-              <PrimaryButton type="submit">Login</PrimaryButton>
+              <div className="pt-2">
+                <PrimaryButton type="submit">Login</PrimaryButton>
+              </div>
             </form>
 
-            <p className="text-[13px] text-gray-500 mt-4">
-              Don’t have an account?{" "}
+            <p className="text-sm text-gray-500 mt-6 text-center md:text-left">
+              Don't have an account?{" "}
               <Link to="/signup" className="text-gray-900 font-medium hover:underline">Sign up</Link>
             </p>
           </div>
         </div>
       </section>
 
-      {/* RIGHT (hidden on small) */}
       <RightPromo />
     </div>
   );
