@@ -78,11 +78,23 @@ function UserIcon({ className = "" }: { className?: string }) {
 }
 function MailIcon({ className = "" }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2zm0 0l8 5 8-5"/>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.8}
+      stroke="currentColor"
+      className={className}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+      />
     </svg>
   );
 }
+
 function LockIcon({ className = "" }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -195,9 +207,9 @@ export default function SignUpPage() {
             <DividerWithText text="OR" />
 
             <form className="space-y-3">
-              <InputWithIcon label="Full name" placeholder="Richard Joseph" Icon={UserIcon} name="fullName" autoComplete="name" />
-              <InputWithIcon label="Email" type="email" placeholder="olivia33@gmail.com" Icon={MailIcon} name="email" autoComplete="email" />
-              <InputWithIcon label="Password" type="password" placeholder="•••••••••" Icon={LockIcon} name="password" autoComplete="new-password" withVisibilityToggle />
+              <InputWithIcon label="Full name" placeholder="" Icon={UserIcon} name="fullName" autoComplete="name" />
+              <InputWithIcon label="Email" type="email" placeholder="" Icon={MailIcon} name="email" autoComplete="email" />
+              <InputWithIcon label="Password" type="password" placeholder="" Icon={LockIcon} name="password" autoComplete="new-password" withVisibilityToggle />
               <PrimaryButton type="submit">Signup</PrimaryButton>
             </form>
 
