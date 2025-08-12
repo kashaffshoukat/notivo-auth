@@ -1,52 +1,51 @@
 import React, { useId, useState } from "react";
 import { Link } from "react-router-dom";
+
 function RightPromo() {
   return (
-    <aside className="hidden md:block relative h-full w-full">
-      <div className="relative h-full w-full bg-[#8DE87F] rounded-[24px] overflow-hidden">
-        {/* Ellipse Background - positioned at bottom left */}
-        <div className="absolute bottom-[4%] left-0 
-                        w-[150px] h-[150px] 
-                        md:w-[170px] md:h-[170px] 
-                        lg:w-[193px] lg:h-[193px] 
-                        xl:w-[210px] xl:h-[210px]">
-          <img
-            src="/Ellipse-404.png"
-            alt=""
-            className="w-full h-full object-contain opacity-40"
-            draggable={false}
+     <aside className="hidden md:block relative h-full w-full p-1 sm:p-1 lg:p-1">
+      <div className="relative h-full w-full bg-[#72E37C] rounded-[1px] lg:rounded-[18px] overflow-hidden">
+        <div className="absolute inset-0">
+          <div
+            className="pointer-events-none absolute
+              md:-bottom-1 md:-left-1 md:w-[140px] md:border-[40px]
+              lg:-bottom-1 lg:-left-1 lg:w-[200px] lg:border-[40px]
+              xl:-bottom-1 xl:-left-1 xl:w-[230px] xl:border-[40px]
+              aspect-square rounded-full border-gray-300/60 z-[1]"
           />
         </div>
 
-        {/* Content - positioned at top left */}
-        <div className="absolute top-8 left-8 lg:top-12 lg:left-12 max-w-[85%] z-10">
-          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight mb-4">
+        <div className="px-6 md:px-8 pt-10 md:pt-12 max-w-[640px] relative z-[3]">
+          <h2 className="text-[32px] leading-[38px] font-extrabold tracking-[-0.02em] text-[#1f2937]">
             Lead Smarter with Better Team Insights
           </h2>
-          <p className="text-sm lg:text-base text-gray-700 leading-relaxed max-w-[400px]">
-            Capture feedback, track growth, and simplify performance conversations — 
-            all in one private, intuitive workspace.
+          <p className="mt-3 text-[15px] leading-[22px] text-[#1f2937]/75 max-w-[560px]">
+            Capture feedback, track growth, and simplify performance conversations <br /> —
+            all in one private, intuitive workspace.<br/>
           </p>
         </div>
 
-        {/* Product Preview Image - positioned at bottom right */}
-        <div className="absolute top-[50%] right-[-8%] -translate-y-1/2 
-                        h-[400px] w-full
-                        md:h-[450px] md:right-[-10%] md:top-[52%]
-                        lg:h-[525px] lg:right-[-9%] lg:top-[55%]
-                        xl:h-[580px] xl:right-[-8%] xl:top-[55%]">
+        <div className="relative h-full z-[2] pt-5">
           <img
             src="/right-pannel.avif"
             alt="Product preview"
             loading="lazy"
             draggable={false}
-            className="h-full max-w-none rounded-xl shadow-2xl select-none transform origin-center rotate-[-8deg]"
+            className="
+      w-full h-auto max-w-full
+      rounded-xl shadow-2xl select-none
+      transform-gpu origin-center
+      rotate-[-9deg]
+      md:scale-[1] lg:scale-[1] xl:scale-[1]   /* big like before */
+      md:translate-x-16 lg:translate-x-16 xl:translate-x-16 /* slight right bias */
+    "
           />
         </div>
       </div>
     </aside>
   );
 }
+
 function GoogleIcon({ className = "" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
@@ -60,13 +59,6 @@ function FacebookIcon({ className = "" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <path fill="#1877F2" d="M24 12a12 12 0 10-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 1-2 2V12h3.4l-.5 3.5H14v8.4C19.6 23.1 24 18.1 24 12z"/>
-    </svg>
-  );
-}
-function UserIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A10.973 10.973 0 0112 15c2.21 0 4.265.64 5.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z"/>
     </svg>
   );
 }
@@ -107,7 +99,7 @@ function SocialButton({ provider, children }: { provider: "google" | "facebook";
     </button>
   );
 }
-function DividerWithText({ text = "OR" }: { text?: string }) {
+function DividerWithText({ text = "or" }: { text?: string }) {
   return (
     <div className="flex items-center gap-3 my-4">
       <div className="h-px bg-gray-200 flex-1" />
@@ -174,64 +166,50 @@ function InputWithIcon({
     </div>
   );
 }
-export default function SignUpPage() {
+
+export default function SigninPage() {
   return (
-    <div className="min-h-screen flex flex-col md:grid md:grid-cols-2 md:gap-6 lg:gap-8 p-4 md:p-6 lg:p-8">
-      <section className="bg-white px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-8 flex flex-col min-h-screen md:min-h-full rounded-[24px]">
-        <div className="flex justify-center md:justify-start mb-8 md:mb-12">
+    <div className="min-h-screen flex flex-col md:grid md:grid-cols-2">
+      <section className="bg-white px-5 sm:px-16 md:px-9 lg:px-16 xl:px-24 pb-12 flex flex-col">
+        <div className="pt-6 flex justify-center md:justify-start">
           <img src="/logo.avif" alt="notivo" className="block h-6 w-auto select-none" draggable={false} />
         </div>
 
-        <div className="flex-1 flex items-center justify-center">
-          <div className="w-full max-w-[400px] text-center md:text-left">
-            <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">Sign up</h1>
-            <p className="text-sm text-gray-500 mb-6">Enter your details to signup.</p>
+        <div className="flex-1 grid place-items-center mt-10 md:mt-16">
+          <div className="w-full max-w-[420px] lg:max-w-[480px] text-center md:text-left">
+            <h1 className="text-[28px] leading-[34px] font-semibold text-gray-900">Sign in</h1>
+            <p className="mt-1 text-[13px] leading-[18px] text-gray-500">Welcome back! Please log in.</p>
 
-            <div className="space-y-3 mb-6">
-              <SocialButton provider="google">Sign up with Google</SocialButton>
-              <SocialButton provider="facebook">Sign up with Facebook</SocialButton>
+            <div className="mt-4 space-y-2">
+              <SocialButton provider="google">Sign in with Google</SocialButton>
+              <SocialButton provider="facebook">Sign in with Facebook</SocialButton>
             </div>
 
-            <DividerWithText text="OR" />
+            <DividerWithText text="or" />
 
-            <form className="space-y-4">
-              <InputWithIcon 
-                label="Full name" 
-                placeholder="John Doe" 
-                Icon={UserIcon} 
-                name="fullName" 
-                autoComplete="name" 
-              />
-              <InputWithIcon 
-                label="Email" 
-                type="email" 
-                placeholder="johndoe@example.com" 
-                Icon={MailIcon} 
-                name="email" 
-                autoComplete="email" 
-              />
-              <InputWithIcon 
-                label="Password" 
-                type="password" 
-                placeholder="••••••••••" 
-                Icon={LockIcon} 
-                name="password" 
-                autoComplete="new-password" 
-                withVisibilityToggle 
-              />
+            <form className="space-y-3">
+              <InputWithIcon label="Email" type="email" placeholder="Email" Icon={MailIcon} name="" autoComplete="email" />
+              <InputWithIcon label="Password" type="password" placeholder="Password" Icon={LockIcon} name="" autoComplete="current-password" withVisibilityToggle />
 
-              <div className="pt-2">
-                <PrimaryButton type="submit">Signup</PrimaryButton>
+              <div className="flex items-center justify-between pt-1">
+                <label className="inline-flex items-center gap-2 text-xs text-gray-600 select-none">
+                  <input type="checkbox" className="h-3.5 w-3.5 rounded border-gray-300 text-gray-900 focus:ring-gray-800" />
+                  Keep me logged in
+                </label>
+                <a href="#" className="text-xs text-gray-600 hover:underline"><b>Forgot password?</b></a>
               </div>
+
+              <PrimaryButton type="submit">Login</PrimaryButton>
             </form>
 
-            <p className="text-sm text-gray-500 mt-6 text-center md:text-left">
-              Already have an account?{" "}
-              <Link to="/login" className="text-gray-900 font-medium hover:underline">Sign in</Link>
+            <p className="text-[13px] text-gray-500 mt-4">
+              Don’t have an account?{" "}
+              <Link to="/signup" className="text-gray-900 font-medium hover:underline">Sign up</Link>
             </p>
           </div>
         </div>
       </section>
+
       <RightPromo />
     </div>
   );
