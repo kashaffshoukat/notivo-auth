@@ -3,43 +3,45 @@ import { Link } from "react-router-dom";
 
 function RightPromo() {
   return (
-    <aside className="hidden md:block relative h-full w-full p-2 lg:p-4">
-      <div className="relative h-full w-full bg-[#72E37C] rounded-lg lg:rounded-2xl overflow-hidden">
-        <div className="absolute inset-0">
-          <div
-            className="pointer-events-none absolute
-              md:-bottom-2 md:-left-2 md:w-[120px] md:border-[30px]
-              lg:-bottom-4 lg:-left-4 lg:w-[180px] lg:border-[40px]
-              xl:-bottom-6 xl:-left-6 xl:w-[220px] xl:border-[50px]
-              aspect-square rounded-full border-white/20 z-[1]"
+    <aside className="hidden md:block relative h-full w-full">
+      <div className="relative h-full w-full bg-[#8DE87F] rounded-[24px] overflow-hidden">
+        {/* Ellipse Background - positioned at bottom left */}
+        <div className="absolute bottom-[4%] left-0 
+                        w-[150px] h-[150px] 
+                        md:w-[170px] md:h-[170px] 
+                        lg:w-[193px] lg:h-[193px] 
+                        xl:w-[210px] xl:h-[210px]">
+          <img
+            src="/Ellipse-404.png"
+            alt=""
+            className="w-full h-full object-contain opacity-40"
+            draggable={false}
           />
         </div>
 
-        <div className="px-6 md:px-8 lg:px-10 pt-8 md:pt-10 lg:pt-12 max-w-[90%] relative z-[3]">
-          <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold tracking-tight text-[#1f2937] leading-tight">
+        {/* Content - positioned at top left */}
+        <div className="absolute top-8 left-8 lg:top-12 lg:left-12 max-w-[85%] z-10">
+          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight mb-4">
             Lead Smarter with Better Team Insights
           </h2>
-          <p className="mt-3 md:mt-4 text-sm md:text-base text-[#1f2937]/80 max-w-[85%] leading-relaxed">
+          <p className="text-sm lg:text-base text-gray-700 leading-relaxed max-w-[400px]">
             Capture feedback, track growth, and simplify performance conversations — 
             all in one private, intuitive workspace.
           </p>
         </div>
 
-        <div className="absolute bottom-0 right-0 w-full h-full z-[2] overflow-hidden">
+                {/* Product Preview Image - positioned at bottom right */}
+        <div className="absolute top-[50%] right-[-8%] -translate-y-1/2 
+                        h-[400px] w-full
+                        md:h-[450px] md:right-[-10%] md:top-[52%]
+                        lg:h-[525px] lg:right-[-9%] lg:top-[55%]
+                        xl:h-[580px] xl:right-[-8%] xl:top-[55%]">
           <img
             src="/right-pannel.avif"
             alt="Product preview"
             loading="lazy"
             draggable={false}
-            className="
-              absolute
-              bottom-4 right-4
-              md:bottom-6 md:right-6 md:w-[70%]
-              lg:bottom-8 lg:right-8 lg:w-[75%]
-              xl:bottom-10 xl:right-10 xl:w-[80%]
-              max-w-none rounded-lg md:rounded-xl shadow-2xl select-none
-              transform rotate-[-8deg] origin-bottom-right
-            "
+            className="h-full max-w-none rounded-xl shadow-2xl select-none transform origin-center rotate-[-8deg]"
           />
         </div>
       </div>
@@ -170,8 +172,8 @@ function InputWithIcon({
 
 export default function SigninPage() {
   return (
-    <div className="min-h-screen flex flex-col md:grid md:grid-cols-2">
-      <section className="bg-white px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-8 flex flex-col min-h-screen md:min-h-full">
+    <div className="min-h-screen flex flex-col md:grid md:grid-cols-2 md:gap-6 lg:gap-8 p-4 md:p-6 lg:p-8">
+      <section className="bg-white px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-8 flex flex-col min-h-screen md:min-h-full rounded-[24px]">
         <div className="flex justify-center md:justify-start mb-8 md:mb-12">
           <img src="/logo.avif" alt="notivo" className="block h-6 w-auto select-none" draggable={false} />
         </div>
