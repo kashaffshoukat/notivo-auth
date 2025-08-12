@@ -1,5 +1,6 @@
 import React, { useId, useState } from "react";
 import { Link } from "react-router-dom";
+
 function RightPromo() {
   return (
     <aside className="hidden md:block relative h-full w-full">
@@ -29,7 +30,7 @@ function RightPromo() {
           </p>
         </div>
 
-        {/* Product Preview Image - positioned at bottom right */}
+                {/* Product Preview Image - positioned at bottom right */}
         <div className="absolute top-[50%] right-[-8%] -translate-y-1/2 
                         h-[400px] w-full
                         md:h-[450px] md:right-[-10%] md:top-[52%]
@@ -47,6 +48,7 @@ function RightPromo() {
     </aside>
   );
 }
+
 function GoogleIcon({ className = "" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
@@ -60,13 +62,6 @@ function FacebookIcon({ className = "" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <path fill="#1877F2" d="M24 12a12 12 0 10-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 1-2 2V12h3.4l-.5 3.5H14v8.4C19.6 23.1 24 18.1 24 12z"/>
-    </svg>
-  );
-}
-function UserIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A10.973 10.973 0 0112 15c2.21 0 4.265.64 5.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z"/>
     </svg>
   );
 }
@@ -107,7 +102,7 @@ function SocialButton({ provider, children }: { provider: "google" | "facebook";
     </button>
   );
 }
-function DividerWithText({ text = "OR" }: { text?: string }) {
+function DividerWithText({ text = "or" }: { text?: string }) {
   return (
     <div className="flex items-center gap-3 my-4">
       <div className="h-px bg-gray-200 flex-1" />
@@ -174,7 +169,8 @@ function InputWithIcon({
     </div>
   );
 }
-export default function SignUpPage() {
+
+export default function SigninPage() {
   return (
     <div className="min-h-screen flex flex-col md:grid md:grid-cols-2 md:gap-6 lg:gap-8 p-4 md:p-6 lg:p-8">
       <section className="bg-white px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-8 flex flex-col min-h-screen md:min-h-full rounded-[24px]">
@@ -184,28 +180,21 @@ export default function SignUpPage() {
 
         <div className="flex-1 flex items-center justify-center">
           <div className="w-full max-w-[400px] text-center md:text-left">
-            <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">Sign up</h1>
-            <p className="text-sm text-gray-500 mb-6">Enter your details to signup.</p>
+            <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">Sign in</h1>
+            <p className="text-sm text-gray-500 mb-6">Enter your details to login.</p>
 
             <div className="space-y-3 mb-6">
-              <SocialButton provider="google">Sign up with Google</SocialButton>
-              <SocialButton provider="facebook">Sign up with Facebook</SocialButton>
+              <SocialButton provider="google">Sign in with Google</SocialButton>
+              <SocialButton provider="facebook">Sign in with Facebook</SocialButton>
             </div>
 
             <DividerWithText text="OR" />
 
             <form className="space-y-4">
               <InputWithIcon 
-                label="Full name" 
-                placeholder="John Doe" 
-                Icon={UserIcon} 
-                name="fullName" 
-                autoComplete="name" 
-              />
-              <InputWithIcon 
                 label="Email" 
                 type="email" 
-                placeholder="johndoe@example.com" 
+                placeholder="richardjoe33@gmail.com" 
                 Icon={MailIcon} 
                 name="email" 
                 autoComplete="email" 
@@ -216,22 +205,31 @@ export default function SignUpPage() {
                 placeholder="••••••••••" 
                 Icon={LockIcon} 
                 name="password" 
-                autoComplete="new-password" 
+                autoComplete="current-password" 
                 withVisibilityToggle 
               />
 
+              <div className="flex items-center justify-between py-2">
+                <label className="inline-flex items-center gap-2 text-sm text-gray-600 select-none">
+                  <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-gray-900 focus:ring-gray-800" />
+                  Keep me logged in
+                </label>
+                <a href="#" className="text-sm text-gray-600 underline hover:text-gray-800">Forgot password?</a>
+              </div>
+
               <div className="pt-2">
-                <PrimaryButton type="submit">Signup</PrimaryButton>
+                <PrimaryButton type="submit">Login</PrimaryButton>
               </div>
             </form>
 
             <p className="text-sm text-gray-500 mt-6 text-center md:text-left">
-              Already have an account?{" "}
-              <Link to="/login" className="text-gray-900 font-medium hover:underline">Sign in</Link>
+              Don't have an account?{" "}
+              <Link to="/signup" className="text-gray-900 font-medium hover:underline">Sign up</Link>
             </p>
           </div>
         </div>
       </section>
+
       <RightPromo />
     </div>
   );
