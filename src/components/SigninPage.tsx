@@ -4,19 +4,33 @@ import { Link } from "react-router-dom";
 /* ========================= Right Panel (tilted & cropped) ========================= */
 function RightPromo() {
   return (
-    <aside className="hidden md:block relative h-full w-full">
-      <div className="absolute inset-0 bg-[#72E37C] rounded-[18px] overflow-hidden">
-        <div className="px-8 pt-12 max-w-[640px]">
+    <aside className="hidden md:block relative h-full w-full p-1 sm:p-1 lg:p-1">
+      <div className="relative h-full w-full bg-[#72E37C] rounded-[1px] overflow-hidden">
+        {/* Decorative ring circles (behind the mockup) */}
+        <div className="absolute inset-0">
+         
+          <div
+            className="pointer-events-none absolute
+              md:-bottom-1 md:-left-1 md:w-[140px] md:border-[40px]
+              lg:-bottom-1 lg:-left-1 lg:w-[200px] lg:border-[40px]
+              xl:-bottom-1 xl:-left-1 xl:w-[230px] xl:border-[40px]
+              aspect-square rounded-full border-gray-300/60 z-[1]"
+          />
+        </div>
+
+        {/* Text content */}
+        <div className="px-6 md:px-8 pt-10 md:pt-12 max-w-[640px] relative z-[3]">
           <h2 className="text-[32px] leading-[38px] font-extrabold tracking-[-0.02em] text-[#1f2937]">
             Lead Smarter with Better Team Insights
           </h2>
           <p className="mt-3 text-[15px] leading-[22px] text-[#1f2937]/75 max-w-[560px]">
-            Capture feedback, track growth, and simplify performance conversations <br/> —
+            Capture feedback, track growth, and simplify performance conversations <br /> — 
             all in one private, intuitive workspace.
           </p>
         </div>
 
-        <div className="relative h-full">
+        {/* Tilted image */}
+        <div className="relative h-full z-[2]">
           <img
             src="/right-pannel.avif"
             alt="Product preview"
@@ -24,12 +38,10 @@ function RightPromo() {
             draggable={false}
             className="
               absolute
-              right-[-225px]
-              w-[125%]
-              max-w-none
-              rounded-xl
-              shadow-2xl
-              select-none
+              md:right-[-140px] md:w-[118%]
+              lg:right-[-200px] lg:w-[125%]
+              xl:right-[-240px] xl:w-[130%]
+              max-w-none rounded-xl shadow-2xl select-none
               transform origin-center rotate-[-8deg]
             "
           />
@@ -161,7 +173,7 @@ export default function SigninPage() {
           <img src="/logo.avif" alt="notivo" className="block h-6 w-auto select-none" draggable={false} />
         </div>
 
-        {/* Content: centered on small, left on md+ with a clean gap from logo */}
+        {/* Content */}
         <div className="flex-1 grid place-items-center mt-10 md:mt-16">
           <div className="w-full max-w-[380px] text-center md:text-left">
             <h1 className="text-[28px] leading-[34px] font-semibold text-gray-900">Sign in</h1>
