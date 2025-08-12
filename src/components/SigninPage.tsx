@@ -187,7 +187,7 @@ export default function SigninPage() {
 
             <DividerWithText text="or" />
 
-            <form className="space-y-3">
+            <form className="space-y-3 text-left">
               <InputWithIcon label="Email" type="email" placeholder="Email" Icon={MailIcon} name="" autoComplete="email" />
               <InputWithIcon label="Password" type="password" placeholder="Password" Icon={LockIcon} name="" autoComplete="current-password" withVisibilityToggle />
 
