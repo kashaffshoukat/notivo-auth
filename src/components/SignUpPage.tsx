@@ -4,30 +4,28 @@ import { Link } from "react-router-dom";
 /* ========================= Right Panel (tilted & cropped) ========================= */
 function RightPromo() {
   return (
-    // Desktop only so mobile layout stays clean
-    <aside className="hidden lg:block relative h-full w-full p-6 xl:p-8">
-      <div className="relative h-full w-full bg-[#72E37C] rounded-[18px] overflow-hidden">
-        {/* Decorative rings (SVG, reliable across Tailwind versions) */}
-        <div className="pointer-events-none absolute -bottom-16 -left-16 z-[1]">
-          <svg
-            width="420"
-            height="420"
-            viewBox="0 0 420 420"
-            className="block lg:w-[360px] lg:h-[360px] xl:w-[420px] xl:h-[420px]"
-            aria-hidden="true"
-          >
-            <circle cx="210" cy="210" r="150" fill="none" stroke="#D1D5DB" strokeOpacity="0.55" strokeWidth="36" />
-            <circle cx="250" cy="250" r="95"  fill="none" stroke="#D1D5DB" strokeOpacity="0.60" strokeWidth="26" />
-          </svg>
+    <aside className="hidden md:block relative h-full w-full p-1 sm:p-1 lg:p-1">
+      <div className="relative h-full w-full bg-[#72E37C] rounded-[1px] overflow-hidden">
+        {/* Decorative ring circles (behind the mockup) */}
+        <div className="absolute inset-0">
+         
+          <div
+            className="pointer-events-none absolute
+              md:-bottom-1 md:-left-1 md:w-[140px] md:border-[40px]
+              lg:-bottom-1 lg:-left-1 lg:w-[200px] lg:border-[40px]
+              xl:-bottom-1 xl:-left-1 xl:w-[230px] xl:border-[40px]
+              aspect-square rounded-full border-gray-300/60 z-[1]"
+          />
         </div>
 
         {/* Text content */}
-        <div className="px-8 pt-12 max-w-[640px] relative z-[3]">
+        <div className="px-6 md:px-8 pt-10 md:pt-12 max-w-[640px] relative z-[3]">
           <h2 className="text-[32px] leading-[38px] font-extrabold tracking-[-0.02em] text-[#1f2937]">
             Lead Smarter with Better Team Insights
           </h2>
           <p className="mt-3 text-[15px] leading-[22px] text-[#1f2937]/75 max-w-[560px]">
-            Capture feedback, track growth, and simplify performance conversations <br /> — all in one private, intuitive workspace.
+            Capture feedback, track growth, and simplify performance conversations <br /> — 
+            all in one private, intuitive workspace.
           </p>
         </div>
 
@@ -40,8 +38,9 @@ function RightPromo() {
             draggable={false}
             className="
               absolute
-              lg:right-[-220px] lg:w-[128%]
-              xl:right-[-250px] xl:w-[132%]
+              md:right-[-140px] md:w-[118%]
+              lg:right-[-200px] lg:w-[125%]
+              xl:right-[-240px] xl:w-[130%]
               max-w-none rounded-xl shadow-2xl select-none
               transform origin-center rotate-[-8deg]
             "
@@ -51,6 +50,7 @@ function RightPromo() {
     </aside>
   );
 }
+
 
 /* ============================== Small UI helpers =============================== */
 function GoogleIcon({ className = "" }: { className?: string }) {
@@ -69,6 +69,13 @@ function FacebookIcon({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+function UserIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A10.973 10.973 0 0112 15c2.21 0 4.265.64 5.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z"/>
+    </svg>
+  );
+}
 function MailIcon({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -79,10 +86,15 @@ function MailIcon({ className = "" }: { className?: string }) {
       stroke="currentColor"
       className={className}
     >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+      />
     </svg>
   );
 }
+
 function LockIcon({ className = "" }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -102,7 +114,7 @@ function SocialButton({ provider, children }: { provider: "google" | "facebook";
     </button>
   );
 }
-function DividerWithText({ text = "or" }: { text?: string }) {
+function DividerWithText({ text = "OR" }: { text?: string }) {
   return (
     <div className="flex items-center gap-3 my-4">
       <div className="h-px bg-gray-200 flex-1" />
@@ -171,53 +183,45 @@ function InputWithIcon({
 }
 
 /* ==================================== PAGE ==================================== */
-export default function SigninPage() {
+export default function SignUpPage() {
   return (
-    <div className="min-h-screen flex flex-col lg:grid lg:grid-cols-2">
+    <div className="min-h-screen flex flex-col md:grid md:grid-cols-2">
       {/* LEFT */}
-      <section className="bg-white px-5 sm:px-16 md:px-9 pb-10 flex flex-col">
-        {/* Logo */}
-        <div className="pt-6 flex justify-center lg:justify-start">
+      <section className="bg-white px-5 sm:px-7 md:px-9 pb-10 flex flex-col">
+        {/* Logo: centered on small, left on md+ */}
+        <div className="pt-6 flex justify-center md:justify-start">
           <img src="/logo.avif" alt="notivo" className="block h-6 w-auto select-none" draggable={false} />
         </div>
 
         {/* Content */}
-        <div className="flex-1 grid place-items-center mt-10 lg:mt-16">
-          <div className="w-full max-w-[380px] text-center lg:text-left">
-            <h1 className="text-[28px] leading-[34px] font-semibold text-gray-900">Sign in</h1>
-            <p className="mt-1 text-[13px] leading-[18px] text-gray-500">Welcome back! Please log in.</p>
+        <div className="flex-1 grid place-items-center mt-10 md:mt-16">
+          <div className="w-full max-w-[380px] text-center md:text-left">
+            <h1 className="text-[28px] leading-[34px] font-semibold text-gray-900">Sign up</h1>
+            <p className="mt-1 text-[13px] leading-[18px] text-gray-500">Enter your details to signup.</p>
 
             <div className="mt-4 space-y-2">
-              <SocialButton provider="google">Sign in with Google</SocialButton>
-              <SocialButton provider="facebook">Sign in with Facebook</SocialButton>
+              <SocialButton provider="google">Sign up with Google</SocialButton>
+              <SocialButton provider="facebook">Sign up with Facebook</SocialButton>
             </div>
 
-            <DividerWithText text="or" />
+            <DividerWithText text="OR" />
 
             <form className="space-y-3">
-              <InputWithIcon label="Email" type="email" placeholder="you@example.com" Icon={MailIcon} name="email" autoComplete="email" />
-              <InputWithIcon label="Password" type="password" placeholder="•••••••••" Icon={LockIcon} name="password" autoComplete="current-password" withVisibilityToggle />
-
-              <div className="flex items-center justify-between pt-1">
-                <label className="inline-flex items-center gap-2 text-xs text-gray-600 select-none">
-                  <input type="checkbox" className="h-3.5 w-3.5 rounded border-gray-300 text-gray-900 focus:ring-gray-800" />
-                  Keep me logged in
-                </label>
-                <a href="#" className="text-xs text-gray-600 hover:underline">Forgot password?</a>
-              </div>
-
-              <PrimaryButton type="submit">Login</PrimaryButton>
+              <InputWithIcon label="Full name" placeholder="" Icon={UserIcon} name="fullName" autoComplete="name" />
+              <InputWithIcon label="Email" type="email" placeholder="" Icon={MailIcon} name="email" autoComplete="email" />
+              <InputWithIcon label="Password" type="password" placeholder="" Icon={LockIcon} name="password" autoComplete="new-password" withVisibilityToggle />
+              <PrimaryButton type="submit">Signup</PrimaryButton>
             </form>
 
             <p className="text-[13px] text-gray-500 mt-4">
-              Don’t have an account?{" "}
-              <Link to="/signup" className="text-gray-900 font-medium hover:underline">Sign up</Link>
+              If you already have an account?{" "}
+              <Link to="/login" className="text-gray-900 font-medium hover:underline">Sign in</Link>
             </p>
           </div>
         </div>
       </section>
 
-      {/* RIGHT (desktop only) */}
+      {/* RIGHT (hidden on small) */}
       <RightPromo />
     </div>
   );
