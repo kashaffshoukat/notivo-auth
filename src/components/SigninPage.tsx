@@ -198,8 +198,8 @@ export default function SigninPage() {
             <DividerWithText text="or" />
 
             <form className="space-y-3">
-              <InputWithIcon label="Email" type="email" placeholder="" Icon={MailIcon} name="email" autoComplete="email" />
-              <InputWithIcon label="Password" type="password" placeholder="" Icon={LockIcon} name="password" autoComplete="current-password" withVisibilityToggle />
+              <InputWithIcon label="Email" type="email" placeholder="" Icon={MailIcon} name="" autoComplete="email" />
+              <InputWithIcon label="Password" type="password" placeholder="" Icon={LockIcon} name="" autoComplete="current-password" withVisibilityToggle />
 
               <div className="flex items-center justify-between pt-1">
                 <label className="inline-flex items-center gap-2 text-xs text-gray-600 select-none">
